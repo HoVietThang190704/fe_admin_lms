@@ -30,6 +30,12 @@ export const INTERNAL_API_ENDPOINTS = {
   HOME: {
     DASHBOARD: "/api/home",
   },
+  USERS: {
+    LIST: "/api/users",
+    BLOCK: "/api/users/{id}/block",
+    ROLE: "/api/users/{id}/role",
+    DELETE: "/api/users/{id}",
+  },
 };
 
 export const EXTERNAL_API_ENDPOINTS = {

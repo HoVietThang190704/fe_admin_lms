@@ -28,6 +28,7 @@ const SIDEBAR_ICON_MAP = {
   tickets: LifeBuoy,
   communications: MessageSquare,
   community: Users,
+  users: Users,
   reports: LineChart,
   support: Headphones,
   targets: Target,
@@ -44,7 +45,7 @@ export type DashboardSidebarNavItem = {
   badge?: string;
 };
 
-type SupportContent = {
+export type DashboardSidebarSupportContent = {
   label: string;
   title: string;
   description: string;
@@ -56,17 +57,10 @@ type DashboardSidebarProps = {
   tagline: string;
   navItems: DashboardSidebarNavItem[];
   secondaryNavItems: DashboardSidebarNavItem[];
-  support: SupportContent;
+  support: DashboardSidebarSupportContent;
 };
 
 const resolveIcon = (icon: SidebarIconName) => SIDEBAR_ICON_MAP[icon] ?? LayoutDashboard;
-
-export const isSidebarIconName = (value?: string): value is SidebarIconName => {
-  if (!value) {
-    return false;
-  }
-  return value in SIDEBAR_ICON_MAP;
-};
 
 export const DashboardSidebar = ({ title, tagline, navItems, secondaryNavItems, support }: DashboardSidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
