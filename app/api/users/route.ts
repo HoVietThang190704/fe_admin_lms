@@ -13,6 +13,15 @@ export type UsersApiResponse = {
   };
 };
 
+export type CreateUserApiResponse = {
+  id: string;
+  email: string;
+  fullName?: string;
+  role: string;
+  isActive: boolean;
+  isBlocked?: boolean;
+};
+
 const getUsersEndpoint = (searchParams: URLSearchParams) => {
   const targetUrl = new URL(buildApiUrl(INTERNAL_API_ENDPOINTS.USERS.LIST));
   searchParams.forEach((value, key) => {
@@ -23,14 +32,19 @@ const getUsersEndpoint = (searchParams: URLSearchParams) => {
   return targetUrl.toString();
 };
 
-export const GET = apiHandlerWithReq(async (req) => {
-  const endpoint = getUsersEndpoint(req.nextUrl.searchParams);
-  const accessToken = req.cookies.get('lmsAccessToken')?.value;
-
+const buildAuthHeaders = (accessToken?: string) => {
   const headers = new Headers();
   if (accessToken) {
     headers.set('Authorization', `Bearer ${accessToken}`);
   }
+  return headers;
+};
+
+export const GET = apiHandlerWithReq(async (req) => {
+  const endpoint = getUsersEndpoint(req.nextUrl.searchParams);
+  const accessToken = req.cookies.get('lmsAccessToken')?.value;
+
+  const headers = buildAuthHeaders(accessToken);
 
   const { data } = await backendFetch(endpoint, {
     method: 'GET',
@@ -49,4 +63,20 @@ export const GET = apiHandlerWithReq(async (req) => {
       totalPages: payload.pagination?.totalPages ?? 0
     }
   } satisfies UsersApiResponse;
+});
+
+export const POST = apiHandlerWithReq(async (req) => {
+  const accessToken = req.cookies.get('lmsAccessToken')?.value;
+  const headers = buildAuthHeaders(accessToken);
+  headers.set('Content-Type', 'application/json');
+
+  const body = await req.json();
+  const { data } = await backendFetch(buildApiUrl(INTERNAL_API_ENDPOINTS.USERS.LIST), {
+    method: 'POST',
+    headers,
+    body: JSON.stringify(body),
+    parseJson: true
+  });
+
+  return data?.data as CreateUserApiResponse;
 });

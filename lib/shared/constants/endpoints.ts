@@ -33,6 +33,8 @@ export const INTERNAL_API_ENDPOINTS = {
   USERS: {
     LIST: "/api/users",
     BLOCK: "/api/users/{id}/block",
+    ROLE: "/api/users/{id}/role",
+    DELETE: "/api/users/{id}",
   },
 };
 

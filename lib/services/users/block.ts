@@ -10,7 +10,8 @@ export const updateUserBlockStatus = async (userId: string, payload: UpdateBlock
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(payload)
+    body: JSON.stringify(payload),
+    credentials: 'include'
   });
 
   if (!response.ok) {

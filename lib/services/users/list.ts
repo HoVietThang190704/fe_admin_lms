@@ -62,7 +62,8 @@ export const fetchAdminUsers = async (params: AdminUserListParams = {}): Promise
     headers: {
       'Content-Type': 'application/json'
     },
-    cache: 'no-store'
+    cache: 'no-store',
+    credentials: 'include'
   });
 
   if (!response.ok) {

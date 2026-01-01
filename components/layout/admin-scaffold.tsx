@@ -19,7 +19,7 @@ export const AdminScaffold = ({ sidebar, children }: AdminScaffoldProps) => (
         support={sidebar.support}
       />
 
-      <div className="flex flex-1 flex-col bg-slate-50 text-slate-900">
+      <div className="flex min-w-0 flex-1 flex-col bg-slate-50 text-slate-900">
         <header className="flex items-center justify-between border-b border-slate-100 bg-white/70 px-6 py-4 backdrop-blur lg:hidden">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-400">{sidebar.title}</p>

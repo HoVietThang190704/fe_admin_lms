@@ -15,7 +15,8 @@ export const loginWithEmail = async (payload: LoginPayload): Promise<LoginRespon
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(payload),
-    cache: 'no-store'
+    cache: 'no-store',
+    credentials: 'include'
   });
 
   let data: unknown;
