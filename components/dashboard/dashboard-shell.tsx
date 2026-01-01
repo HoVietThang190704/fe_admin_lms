@@ -4,45 +4,22 @@ import {
   BookOpenCheck,
   ChevronRight,
   GaugeCircle,
-  Menu,
   Sparkles
 } from 'lucide-react';
 
-import { ROUTES } from '@/lib/shared/constants/routeres';
 import { cn } from '@/lib/utils/cn';
 import type { AppMessages, SupportedLocale } from '@/lib/i18n';
 import { createTranslator } from '@/lib/i18n';
 import type { HomeDashboardPayload, HomeAssignmentSummary } from '@/lib/services/home/dashboard';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { DashboardSidebar, type DashboardSidebarNavItem } from '@/components/dashboard/dashboard-sidebar';
+import { AdminScaffold } from '@/components/layout/admin-scaffold';
+import { buildSidebarContent } from '@/components/dashboard/sidebar-data';
 
 const ASSIGNMENT_STATUS_STYLES: Record<Exclude<HomeAssignmentSummary['status'], undefined>, string> = {
   pending: 'bg-amber-50 text-amber-900 border border-amber-100',
   'in-progress': 'bg-blue-50 text-blue-900 border border-blue-100',
   completed: 'bg-emerald-50 text-emerald-900 border border-emerald-100'
-};
-
-const SIDEBAR_ICON_KEYS = [
-  'overview',
-  'learning',
-  'analytics',
-  'courses',
-  'tickets',
-  'communications',
-  'community',
-  'reports',
-  'support',
-  'targets',
-  'settings',
-  'alerts'
-] as const;
-
-const isSidebarIconName = (value?: string): value is DashboardSidebarNavItem['icon'] => {
-  if (!value) {
-    return false;
-  }
-  return SIDEBAR_ICON_KEYS.includes(value as (typeof SIDEBAR_ICON_KEYS)[number]);
 };
 
 const clampPercentage = (value?: number) => Math.min(100, Math.max(0, value ?? 0));
@@ -73,31 +50,6 @@ const formatRelativeTime = (value: string, locale: string) => {
   return '';
 };
 
-type RawNavItem = {
-  label?: string;
-  href?: string;
-  icon?: string;
-  badge?: string;
-};
-
-const createSidebarItems = (
-  items: RawNavItem[] | undefined,
-  defaults: DashboardSidebarNavItem
-): DashboardSidebarNavItem[] => {
-  const normalized = (items ?? []).map((item) => ({
-    label: item?.label || defaults.label,
-    href: item?.href || defaults.href,
-    icon: isSidebarIconName(item?.icon) ? item.icon : defaults.icon,
-    badge: item?.badge
-  }));
-
-  if (normalized.length === 0) {
-    return [{ ...defaults }];
-  }
-
-  return normalized;
-};
-
 type DashboardShellProps = {
   data: HomeDashboardPayload | null;
   dictionary: AppMessages;
@@ -107,7 +59,6 @@ type DashboardShellProps = {
 
 export const DashboardShell = ({ data, dictionary, locale, errorMessage }: DashboardShellProps) => {
   const dashboardCopy = dictionary.dashboard ?? {};
-  const sidebarCopy = dashboardCopy.sidebar ?? {};
   const heroCopy = dashboardCopy.hero ?? {};
   const statsCopy = dashboardCopy.stats ?? {};
   const sectionsCopy = dashboardCopy.sections ?? {};
@@ -122,25 +73,7 @@ export const DashboardShell = ({ data, dictionary, locale, errorMessage }: Dashb
   const heroStatusValue = heroCopy.statusValue || 'Optimal';
   const primaryAction = heroCopy.primaryAction || 'View incidents';
   const secondaryAction = heroCopy.secondaryAction || 'Download report';
-
-  const navItems = createSidebarItems(sidebarCopy.navigation as RawNavItem[] | undefined, {
-    label: 'Overview',
-    href: ROUTES.HOME,
-    icon: 'overview'
-  });
-
-  const secondaryNavItems = createSidebarItems(sidebarCopy.secondaryNavigation as RawNavItem[] | undefined, {
-    label: 'Settings',
-    href: ROUTES.SETTINGS,
-    icon: 'settings'
-  });
-
-  const sidebarSupport = {
-    label: sidebarCopy.support?.label || 'NEED HELP?',
-    title: sidebarCopy.support?.title || 'Operations team is on standby',
-    description: sidebarCopy.support?.description || 'Escalate critical incidents directly.',
-    cta: sidebarCopy.support?.cta || 'Contact operations'
-  };
+  const sidebarContent = buildSidebarContent(dictionary);
 
   const stats = [
     {
@@ -189,36 +122,14 @@ export const DashboardShell = ({ data, dictionary, locale, errorMessage }: Dashb
   };
 
   return (
-    <div className="min-h-screen bg-slate-900/95 text-slate-50">
-      <div className="flex min-h-screen flex-col lg:flex-row">
-        <DashboardSidebar
-          title={sidebarCopy.title || 'LMS Admin'}
-          tagline={sidebarCopy.tagline || 'Mission control'}
-          navItems={navItems}
-          secondaryNavItems={secondaryNavItems}
-          support={sidebarSupport}
-        />
+    <AdminScaffold sidebar={sidebarContent}>
+      {errorMessage ? (
+        <Alert variant="danger">
+          <AlertDescription>{errorMessage}</AlertDescription>
+        </Alert>
+      ) : null}
 
-        <div className="flex flex-1 flex-col bg-slate-50 text-slate-900">
-          <header className="flex items-center justify-between border-b border-slate-100 bg-white/70 px-6 py-4 backdrop-blur lg:hidden">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-400">{sidebarCopy.title || 'LMS Admin'}</p>
-              <p className="text-lg font-semibold text-slate-900">{sidebarCopy.tagline || 'Mission control'}</p>
-            </div>
-            <Button variant="ghost" size="icon">
-              <Menu className="h-5 w-5" />
-              <span className="sr-only">Open navigation</span>
-            </Button>
-          </header>
-
-          <main className="flex-1 space-y-8 px-4 py-6 sm:px-6 lg:px-10">
-            {errorMessage ? (
-              <Alert variant="danger">
-                <AlertDescription>{errorMessage}</AlertDescription>
-              </Alert>
-            ) : null}
-
-            <section className="rounded-4xl bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-900 px-6 py-8 text-white shadow-2xl">
+      <section className="rounded-4xl bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-900 px-6 py-8 text-white shadow-2xl">
               <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
                 <div>
                   <p className="text-sm uppercase tracking-[0.4em] text-white/50">{heroStatus}</p>
@@ -242,7 +153,7 @@ export const DashboardShell = ({ data, dictionary, locale, errorMessage }: Dashb
               </div>
             </section>
 
-            <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
               {stats.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -272,7 +183,7 @@ export const DashboardShell = ({ data, dictionary, locale, errorMessage }: Dashb
               })}
             </section>
 
-            <section className="grid gap-6 xl:grid-cols-[1.7fr_1fr]">
+          <section className="grid gap-6 xl:grid-cols-[1.7fr_1fr]">
               <div className="space-y-6">
                 <Panel
                   title={sectionsCopy.classes?.title || 'Monitored classes'}
@@ -389,10 +300,7 @@ export const DashboardShell = ({ data, dictionary, locale, errorMessage }: Dashb
                 </Panel>
               </div>
             </section>
-          </main>
-        </div>
-      </div>
-    </div>
+    </AdminScaffold>
   );
 };
 

@@ -66,6 +66,7 @@
 			"tagline": "Mission control",
 			"navigation": [
 				{ "label": "Overview", "href": "/", "icon": "overview", "badge": "Live" },
+				{ "label": "Users", "href": "/users", "icon": "users" },
 				{ "label": "Learning pulse", "href": "/reports", "icon": "learning" },
 				{ "label": "Courses", "href": "/courses", "icon": "courses" },
 				{ "label": "Tickets", "href": "/my-dashboard", "icon": "tickets" }
@@ -121,6 +122,46 @@
 		},
 		"empty": {
 			"generic": "Nothing to show right now."
+		}
+	},
+	"users": {
+		"page": {
+			"badge": "Identity graph",
+			"title": "User management",
+			"description": "Monitor every admin, instructor, and learner profile synced from the LMS backend.",
+			"primaryAction": "Invite user",
+			"secondaryAction": "Export CSV",
+			"currentScope": "Current page"
+		},
+		"filters": {
+			"searchPlaceholder": "Search by name, email, or ID",
+			"roleLabel": "Role",
+			"allRoles": "All roles",
+			"roleAdmin": "Admin",
+			"roleTeacher": "Instructor",
+			"roleStudent": "Learner"
+		},
+		"table": {
+			"user": "User",
+			"role": "Role",
+			"status": "Status",
+			"created": "Created",
+			"lastLogin": "Last login",
+			"searchCta": "Search",
+			"empty": "No users match the current filters.",
+			"loading": "Syncing roster..."
+		},
+		"status": {
+			"active": "Active",
+			"inactive": "Inactive"
+		},
+		"pagination": {
+			"summary": "Page {page} of {total}",
+			"prev": "Previous",
+			"next": "Next"
+		},
+		"errors": {
+			"load": "Unable to load users. Please try again."
 		}
 	}
 }

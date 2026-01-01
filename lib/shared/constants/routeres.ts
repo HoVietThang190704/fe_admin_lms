@@ -24,6 +24,7 @@ export const ROUTES = {
   CATEGORY: '/category',
   MY_PRODUCTS: '/my-products',
   MY_DASHBOARD: '/my-dashboard',
+  USERS: '/users',
   COURSES: '/courses',
   COURSE_DETAIL: (id: string) => `/courses/${id}`,
   EXERCISES: '/exercises',
