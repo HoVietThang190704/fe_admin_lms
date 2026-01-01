@@ -50,5 +50,77 @@
 			"emailInvalid": "Please enter a valid email address",
 			"passwordMin": "Password must be at least 6 characters"
 		}
+	},
+	"dashboard": {
+		"hero": {
+			"greeting": "Welcome back, {name}!",
+			"subtitle": "Live snapshot of cohorts, assignments, and tickets.",
+			"statusLabel": "Platform health",
+			"statusValue": "Stable",
+			"primaryAction": "View incidents",
+			"secondaryAction": "Download report",
+			"fallbackName": "Admin"
+		},
+		"sidebar": {
+			"title": "LMS Admin",
+			"tagline": "Mission control",
+			"navigation": [
+				{ "label": "Overview", "href": "/", "icon": "overview", "badge": "Live" },
+				{ "label": "Learning pulse", "href": "/reports", "icon": "learning" },
+				{ "label": "Courses", "href": "/courses", "icon": "courses" },
+				{ "label": "Tickets", "href": "/my-dashboard", "icon": "tickets" }
+			],
+			"secondaryNavigation": [
+				{ "label": "Reports", "href": "/reports", "icon": "reports" },
+				{ "label": "Community", "href": "/community", "icon": "community" },
+				{ "label": "Settings", "href": "/settings", "icon": "settings" }
+			],
+			"support": {
+				"label": "Need help?",
+				"title": "Connect with operations",
+				"description": "Escalate an incident or request support.",
+				"cta": "Contact operations"
+			}
+		},
+		"stats": {
+			"enrolled": { "label": "Active courses", "caption": "Assigned to your pod" },
+			"assignments": { "label": "Open assignments", "caption": "Need intervention" },
+			"averageGrade": { "label": "Average grade", "caption": "Weighted cohort score" },
+			"progress": { "label": "Learning progress", "caption": "Completion across classes" }
+		},
+		"sections": {
+			"classes": {
+				"title": "Monitored classes",
+				"subtitle": "Real-time signals from active cohorts",
+				"progressLabel": "Progress",
+				"lessonProgress": "Lessons",
+				"empty": "No monitored classes yet."
+			},
+			"assignments": {
+				"title": "Assignments & tickets",
+				"subtitle": "Track blockers that impact learners",
+				"deadlineLabel": "Due",
+				"empty": "No open assignments."
+			},
+			"notifications": {
+				"title": "Notifications",
+				"subtitle": "Latest alerts from the field",
+				"empty": "You are fully caught up."
+			},
+			"courses": {
+				"title": "Recommended courses",
+				"subtitle": "Surface content that deserves attention",
+				"capacityLabel": "seats",
+				"empty": "No highlighted courses."
+			}
+		},
+		"statuses": {
+			"pending": "Pending",
+			"inProgress": "In progress",
+			"completed": "Completed"
+		},
+		"empty": {
+			"generic": "Nothing to show right now."
+		}
 	}
 }
