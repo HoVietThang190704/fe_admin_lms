@@ -1,0 +1,54 @@
+{
+	"login": {
+		"meta": {
+			"title": "Admin Login | LMS",
+			"description": "Control the LMS ecosystem from a single admin console."
+		},
+		"hero": {
+			"tagline": "LMS Admin Suite",
+			"title": "Bring every learning workflow into one command center.",
+			"description": "Classes, assignments, support tickets, and notifications stream directly from the LMS backend. Sign in to keep every experience stable.",
+			"highlights": [
+				{
+					"title": "Orchestrate cohorts",
+					"description": "Track class progress and trigger early warnings when risk indicators spike."
+				},
+				{
+					"title": "Audit learning content",
+					"description": "Review lessons, resources, and exercises as they are updated each day."
+				},
+				{
+					"title": "Respond instantly",
+					"description": "Receive real-time alerts from learners and instructors whenever an issue emerges."
+				}
+			],
+			"stat": {
+				"label": "Live health score",
+				"value": "99.3%",
+				"caption": "System availability this week"
+			}
+		},
+		"form": {
+			"title": "Welcome back 👋",
+			"subtitle": "Use your issued admin credentials to connect with",
+			"apiPath": "/api/auth/login",
+			"emailLabel": "Admin email",
+			"passwordLabel": "Password",
+			"forgotLink": "Forgot password?",
+			"submit": "Sign in to dashboard",
+			"submitting": "Verifying...",
+			"ctaPrefix": "Missing an account?",
+			"ctaLinkText": "Contact operations",
+			"errorFallback": "Unable to sign in right now. Please try again.",
+			"supportEmail": "support@lms.vn",
+			"forgotSubject": "Password reset request",
+			"showPassword": "Show password",
+			"hidePassword": "Hide password"
+		},
+		"validation": {
+			"emailRequired": "Email is required",
+			"emailInvalid": "Please enter a valid email address",
+			"passwordMin": "Password must be at least 6 characters"
+		}
+	}
+}
