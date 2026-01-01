@@ -29,7 +29,7 @@
 			}
 		},
 		"form": {
-			"title": "Chào mừng quay lại 👋",
+			"title": "Chào mừng quay lại ",
 			"subtitle": "Sử dụng thông tin tài khoản đã được cấp để kết nối với",
 			"apiPath": "/api/auth/login",
 			"emailLabel": "Email quản trị",
@@ -49,6 +49,78 @@
 			"emailRequired": "Email không được bỏ trống",
 			"emailInvalid": "Email không hợp lệ",
 			"passwordMin": "Mật khẩu phải có ít nhất 6 ký tự"
+		}
+	},
+	"dashboard": {
+		"hero": {
+			"greeting": "Chào mừng trở lại, {name}!",
+			"subtitle": "Ảnh chụp thời gian thực của lớp học, bài tập và ticket.",
+			"statusLabel": "Tình trạng hệ thống",
+			"statusValue": "Ổn định",
+			"primaryAction": "Xem sự cố",
+			"secondaryAction": "Tải báo cáo",
+			"fallbackName": "Quản trị viên"
+		},
+		"sidebar": {
+			"title": "LMS Admin",
+			"tagline": "Trung tâm điều hành",
+			"navigation": [
+				{ "label": "Tổng quan", "href": "/", "icon": "overview", "badge": "Live" },
+				{ "label": "Nhịp học tập", "href": "/reports", "icon": "learning" },
+				{ "label": "Khoá học", "href": "/courses", "icon": "courses" },
+				{ "label": "Ticket", "href": "/my-dashboard", "icon": "tickets" }
+			],
+			"secondaryNavigation": [
+				{ "label": "Báo cáo", "href": "/reports", "icon": "reports" },
+				{ "label": "Cộng đồng", "href": "/community", "icon": "community" },
+				{ "label": "Cài đặt", "href": "/settings", "icon": "settings" }
+			],
+			"support": {
+				"label": "Cần hỗ trợ?",
+				"title": "Kết nối bộ phận vận hành",
+				"description": "Báo cáo sự cố hoặc yêu cầu trợ giúp ngay.",
+				"cta": "Liên hệ vận hành"
+			}
+		},
+		"stats": {
+			"enrolled": { "label": "Khoá học đang theo dõi", "caption": "Được giao cho nhóm của bạn" },
+			"assignments": { "label": "Bài tập/ticket mở", "caption": "Cần xử lý" },
+			"averageGrade": { "label": "Điểm trung bình", "caption": "Điểm quy đổi theo nhóm" },
+			"progress": { "label": "Tiến độ học tập", "caption": "Mức hoàn thành của các lớp" }
+		},
+		"sections": {
+			"classes": {
+				"title": "Lớp học đang giám sát",
+				"subtitle": "Tín hiệu realtime từ các cohort",
+				"progressLabel": "Tiến độ",
+				"lessonProgress": "Buổi học",
+				"empty": "Chưa có lớp nào cần theo dõi."
+			},
+			"assignments": {
+				"title": "Bài tập & ticket",
+				"subtitle": "Theo dõi các điểm nghẽn ảnh hưởng đến học viên",
+				"deadlineLabel": "Hạn",
+				"empty": "Không có hạng mục nào đang mở."
+			},
+			"notifications": {
+				"title": "Thông báo",
+				"subtitle": "Cảnh báo mới nhất từ hệ thống",
+				"empty": "Bạn đã cập nhật đầy đủ."
+			},
+			"courses": {
+				"title": "Khoá học đề xuất",
+				"subtitle": "Nội dung cần ưu tiên kiểm tra",
+				"capacityLabel": "chỗ",
+				"empty": "Chưa có khoá học nổi bật."
+			}
+		},
+		"statuses": {
+			"pending": "Chờ xử lý",
+			"inProgress": "Đang xử lý",
+			"completed": "Hoàn tất"
+		},
+		"empty": {
+			"generic": "Hiện chưa có dữ liệu để hiển thị."
 		}
 	}
 }

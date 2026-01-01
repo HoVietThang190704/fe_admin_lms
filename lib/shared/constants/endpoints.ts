@@ -27,6 +27,9 @@ export const INTERNAL_API_ENDPOINTS = {
     GET_HERO_BANNER: "/api/hero-banner",
     GET_HOME_BANNERS: "/api/home-banners",
   },
+  HOME: {
+    DASHBOARD: "/api/home",
+  },
 };
 
 export const EXTERNAL_API_ENDPOINTS = {
