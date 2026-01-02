@@ -249,5 +249,60 @@
 			"create": "Unable to create course.",
 			"imageUpload": "Unable to upload the image. Please try again."
 		}
+	},
+	"settings": {
+		"page": {
+			"eyebrow": "Control center",
+			"title": "Admin settings",
+			"description": "Review your admin profile, rotate credentials, and secure this session."
+		},
+		"account": {
+			"title": "Account overview",
+			"subtitle": "Synchronized with the LMS user directory.",
+			"nameLabel": "Full name",
+			"emailLabel": "Email",
+			"roleLabel": "Role",
+			"phoneLabel": "Phone",
+			"bioLabel": "Bio",
+			"statusLabel": "Status",
+			"lastUpdatedLabel": "Last updated",
+			"refreshCta": "Refresh profile",
+			"missingValue": "Not provided",
+			"statusActive": "Active",
+			"statusInactive": "Inactive",
+			"statusBlocked": "Blocked"
+		},
+		"password": {
+			"title": "Change password",
+			"subtitle": "Enter your current password to confirm this update.",
+			"currentLabel": "Current password",
+			"newLabel": "New password",
+			"confirmLabel": "Confirm new password",
+			"helper": "Minimum 6 characters. Avoid reusing recent passwords.",
+			"submit": "Update password",
+			"submitting": "Updating...",
+			"success": "Password updated successfully."
+		},
+		"session": {
+			"title": "Session controls",
+			"subtitle": "Sign out if you suspect suspicious activity.",
+			"description": "Signing out clears the tokens stored in this browser.",
+			"logoutCta": "Sign out",
+			"logoutSubmitting": "Signing out..."
+		},
+		"validation": {
+			"currentPasswordRequired": "Current password is required",
+			"passwordMin": "Password must be at least 6 characters",
+			"passwordMismatch": "Passwords do not match"
+		},
+		"errors": {
+			"profile": "Unable to load profile. Please try again.",
+			"password": "Unable to update password. Please verify your current password.",
+			"logout": "Unable to sign out. Please try again."
+		},
+		"notifications": {
+			"profileRefreshed": "Profile refreshed.",
+			"passwordUpdated": "Password updated."
+		}
 	}
 }
