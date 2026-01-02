@@ -35,6 +35,7 @@
 			"emailLabel": "Email quản trị",
 			"passwordLabel": "Mật khẩu",
 			"forgotLink": "Quên mật khẩu?",
+			"forgotHref": "/forgot-password",
 			"submit": "Đăng nhập vào bảng điều khiển",
 			"submitting": "Đang xác thực...",
 			"ctaPrefix": "Chưa được cấp tài khoản?",
@@ -149,11 +150,27 @@
 			"lastLogin": "Đăng nhập gần nhất",
 			"searchCta": "Tìm kiếm",
 			"empty": "Không có người dùng phù hợp.",
-			"loading": "Đang đồng bộ danh sách..."
+			"loading": "Đang đồng bộ danh sách...",
+			"blockStatus": "Trạng thái khóa",
+			"actions": "Thao tác",
+			"blockCta": "Khóa",
+			"unblockCta": "Mở khóa",
+			"deleteCta": "Xóa",
+			"fullNameLabel": "Họ và tên",
+			"passwordLabel": "Mật khẩu tạm",
+			"phoneLabel": "Số điện thoại",
+			"bioLabel": "Giới thiệu",
+			"cancelCta": "Hủy",
+			"submitCta": "Tạo người dùng",
+			"createTitle": "Thêm người dùng mới",
+			"createSubtitle": "Nhập thông tin cơ bản và phân quyền.",
+			"deleteConfirm": "Bạn có chắc chắn muốn xóa người dùng này?"
 		},
 		"status": {
 			"active": "Đang hoạt động",
-			"inactive": "Ngưng hoạt động"
+			"inactive": "Ngưng hoạt động",
+			"blocked": "Đã khóa",
+			"unblocked": "Chưa khóa"
 		},
 		"pagination": {
 			"summary": "Trang {page}/{total}",
@@ -161,7 +178,76 @@
 			"next": "Sau"
 		},
 		"errors": {
-			"load": "Không thể tải danh sách người dùng. Vui lòng thử lại."
+			"load": "Không thể tải danh sách người dùng. Vui lòng thử lại.",
+			"create": "Không thể tạo người dùng.",
+			"block": "Không thể cập nhật trạng thái khóa.",
+			"delete": "Không thể xóa người dùng.",
+			"deleteAdmin": "Không thể xóa tài khoản quản trị viên.",
+			"role": "Không thể cập nhật vai trò.",
+			"roleAdmin": "Không thể thay đổi vai trò của quản trị viên."
+		}
+	},
+	"courses": {
+		"page": {
+			"badge": "Bản đồ khóa học",
+			"title": "Quản lý khóa học",
+			"description": "Điều phối mọi khóa học do giảng viên và quản trị viên phát hành.",
+			"primaryAction": "Tạo khóa học",
+			"secondaryAction": "Làm mới trạng thái",
+			"createTitle": "Thêm khóa học mới",
+			"createSubtitle": "Thiết lập thông tin cốt lõi cho khóa học.",
+			"currentScope": "Trang hiện tại"
+		},
+		"filters": {
+			"searchPlaceholder": "Tìm theo tên, mã hoặc giảng viên",
+			"allStatuses": "Tất cả khóa học",
+			"statusActive": "Đang mở",
+			"statusArchived": "Đã lưu trữ"
+		},
+		"table": {
+			"course": "Khóa học",
+			"instructor": "Giảng viên",
+			"schedule": "Lịch học",
+			"status": "Trạng thái",
+			"capacity": "Sĩ số",
+			"enrolled": "Đang tham gia",
+			"created": "Ngày tạo",
+			"actions": "Thao tác",
+			"searchCta": "Tìm kiếm",
+			"loading": "Đang tải danh sách khóa học...",
+			"empty": "Chưa có khóa học nào.",
+			"statusActive": "Đang mở",
+			"statusArchived": "Đã lưu trữ",
+			"codeLabel": "Mã khóa học",
+			"nameLabel": "Tên khóa học",
+			"imageLabel": "Ảnh đại diện (URL)",
+			"imageUploadLabel": "Tải ảnh từ máy",
+			"imageUploadHint": "Hỗ trợ JPG, PNG tối đa 10MB.",
+			"imageUploadStatus": "Đang tải ảnh...",
+			"imagePreviewLabel": "Xem trước",
+			"imagePreviewPlaceholder": "Chọn tệp để xem trước ảnh khóa học.",
+			"instructorLabel": "Giảng viên",
+			"scheduleLabel": "Lịch học",
+			"creditsLabel": "Số tín chỉ",
+			"capacityLabel": "Sĩ số tối đa",
+			"descriptionLabel": "Mô tả",
+			"tagsLabel": "Tags",
+			"deleteCta": "Xóa",
+			"deleteConfirm": "Bạn có chắc chắn muốn xóa khóa học này?",
+			"cancelCta": "Hủy",
+			"submitCta": "Tạo khóa học"
+		},
+		"pagination": {
+			"summary": "Trang {page}/{total}",
+			"prev": "Trước",
+			"next": "Sau"
+		},
+		"errors": {
+			"load": "Không thể tải danh sách khóa học. Vui lòng thử lại.",
+			"status": "Không thể cập nhật trạng thái khóa học.",
+			"delete": "Không thể xóa khóa học.",
+			"create": "Không thể tạo khóa học.",
+			"imageUpload": "Không thể tải ảnh lên. Vui lòng thử lại."
 		}
 	}
 }

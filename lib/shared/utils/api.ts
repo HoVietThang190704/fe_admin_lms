@@ -27,3 +27,21 @@ export const getErrorMessage = (error: unknown, fallback = 'Đã xảy ra lỗi 
 
   return fallback;
 };
+
+export type ApiErrorPayload = {
+  message?: string;
+  [key: string]: unknown;
+} | null;
+
+export const parseApiErrorPayload = async (response: Response): Promise<ApiErrorPayload> => {
+  try {
+    const data = (await response.clone().json()) as Record<string, unknown> | null;
+    if (data && typeof data === 'object') {
+      return data as ApiErrorPayload;
+    }
+  } catch {
+    // Ignore error and fall through to null return
+  }
+
+  return null;
+};
