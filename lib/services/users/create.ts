@@ -1,4 +1,4 @@
-import { ApiError } from '@/lib/shared/utils/api';
+import { ApiError, parseApiErrorPayload } from '@/lib/shared/utils/api';
 
 export type CreateAdminUserPayload = {
   email: string;
@@ -20,13 +20,7 @@ export const createAdminUser = async (payload: CreateAdminUserPayload) => {
   });
 
   if (!response.ok) {
-    let errorPayload: any = null;
-    try {
-      errorPayload = await response.clone().json();
-    } catch {
-      errorPayload = null;
-    }
-
+    const errorPayload = await parseApiErrorPayload(response);
     throw new ApiError(errorPayload?.message || 'Failed to create user', response.status, errorPayload);
   }
 

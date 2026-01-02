@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { useMemo, type FormEvent } from 'react';
 import type { FieldErrors, UseFormRegister } from 'react-hook-form';
 import { Loader2, RefreshCw, Search } from 'lucide-react';
-import type { LucideIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -12,6 +11,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Popup } from '@/components/ui/popup';
+import { MetricCard, type MetricCardConfig } from '@/components/dashboard/metric-card';
 import { cn } from '@/lib/utils/cn';
 import type { AppMessages, SupportedLocale } from '@/lib/i18n';
 import type { AdminUserRecord } from '@/lib/services/users/list';
@@ -63,14 +63,7 @@ const getInitials = (value?: string | null) => {
   return parts.map((part) => part[0]).join('').toUpperCase();
 };
 
-export type SummaryCard = {
-  key: string;
-  label: string;
-  value: number;
-  caption: string;
-  icon: LucideIcon;
-  accent: string;
-};
+export type SummaryCard = MetricCardConfig;
 
 export type UserManagementShellProps = {
   locale: SupportedLocale;
@@ -181,23 +174,9 @@ export const UserManagementShell = ({
       ) : null}
 
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        {summaryCards.map((card) => {
-          const Icon = card.icon;
-          return (
-            <div key={card.key} className={`rounded-3xl border border-white/70 bg-linear-to-br ${card.accent} from-10% to-90% p-5 shadow-sm`}>
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.35em] text-slate-500">{card.label}</p>
-                  <p className="mt-2 text-3xl font-semibold text-slate-900">{numberFormatter.format(card.value)}</p>
-                </div>
-                <div className="rounded-2xl bg-white/80 p-2 text-slate-900">
-                  <Icon className="h-5 w-5" />
-                </div>
-              </div>
-              <p className="mt-4 text-sm text-slate-500">{card.caption}</p>
-            </div>
-          );
-        })}
+        {summaryCards.map(({ key, ...cardConfig }) => (
+          <MetricCard key={key} {...cardConfig} valueFormatter={numberFormatter.format} />
+        ))}
       </section>
 
       <Card className="p-0">

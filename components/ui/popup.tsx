@@ -98,7 +98,11 @@ export const Popup = ({
           aria-describedby={description ? descriptionId : undefined}
           ref={panelRef}
           tabIndex={-1}
-          className={cn('w-full rounded-3xl bg-white p-6 shadow-2xl focus:outline-none', SIZE_MAP[size], className)}
+          className={cn(
+            'w-full max-h-[calc(100vh-2rem)] overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl focus:outline-none sm:max-h-[90vh]',
+            SIZE_MAP[size],
+            className
+          )}
           onClick={(event) => event.stopPropagation()}
         >
           {(eyebrow || title || description || shouldShowCloseButton) && (

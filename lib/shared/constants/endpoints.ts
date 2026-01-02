@@ -8,6 +8,7 @@ export const INTERNAL_API_ENDPOINTS = {
     RESET_PASSWORD: "/api/auth/reset-password",
   },
   COURSE: {
+    LIST: "/api/courses",
     GET_PUBLIC: "/api/courses/public",
     GET_DETAIL: "/api/courses/{id}",
     CREATE: "/api/courses",
@@ -35,6 +36,10 @@ export const INTERNAL_API_ENDPOINTS = {
     BLOCK: "/api/users/{id}/block",
     ROLE: "/api/users/{id}/role",
     DELETE: "/api/users/{id}",
+  },
+  UPLOAD: {
+    IMAGES: "/api/upload/images",
+    IMAGE: "/api/upload/images/{publicId}",
   },
 };
 

@@ -8,7 +8,8 @@ export const backendFetch = async (url: string, options: BackendFetchOptions = {
   const { parseJson = false, headers, ...rest } = options;
   const mergedHeaders = new Headers(headers);
 
-  if (!mergedHeaders.has('Content-Type') && rest.body) {
+  const shouldApplyJsonHeader = typeof rest.body === 'string';
+  if (!mergedHeaders.has('Content-Type') && shouldApplyJsonHeader) {
     mergedHeaders.set('Content-Type', 'application/json');
   }
 
