@@ -249,5 +249,60 @@
 			"create": "Không thể tạo khóa học.",
 			"imageUpload": "Không thể tải ảnh lên. Vui lòng thử lại."
 		}
+	},
+	"settings": {
+		"page": {
+			"eyebrow": "Trung tâm điều khiển",
+			"title": "Cài đặt quản trị",
+			"description": "Xem thông tin tài khoản, đổi mật khẩu và bảo vệ phiên đăng nhập."
+		},
+		"account": {
+			"title": "Thông tin tài khoản",
+			"subtitle": "Đồng bộ trực tiếp từ danh sách người dùng LMS.",
+			"nameLabel": "Họ và tên",
+			"emailLabel": "Email",
+			"roleLabel": "Vai trò",
+			"phoneLabel": "Số điện thoại",
+			"bioLabel": "Giới thiệu",
+			"statusLabel": "Trạng thái",
+			"lastUpdatedLabel": "Cập nhật gần nhất",
+			"refreshCta": "Làm mới",
+			"missingValue": "Chưa cập nhật",
+			"statusActive": "Đang hoạt động",
+			"statusInactive": "Ngưng hoạt động",
+			"statusBlocked": "Đã khóa"
+		},
+		"password": {
+			"title": "Đổi mật khẩu",
+			"subtitle": "Nhập mật khẩu hiện tại để xác nhận thay đổi.",
+			"currentLabel": "Mật khẩu hiện tại",
+			"newLabel": "Mật khẩu mới",
+			"confirmLabel": "Xác nhận mật khẩu",
+			"helper": "Tối thiểu 6 ký tự. Hạn chế sử dụng lại mật khẩu cũ.",
+			"submit": "Cập nhật mật khẩu",
+			"submitting": "Đang cập nhật...",
+			"success": "Đổi mật khẩu thành công."
+		},
+		"session": {
+			"title": "Quản lý phiên đăng nhập",
+			"subtitle": "Đăng xuất nếu bạn nghi ngờ hoạt động bất thường.",
+			"description": "Đăng xuất sẽ xóa token đang lưu trên trình duyệt này.",
+			"logoutCta": "Đăng xuất",
+			"logoutSubmitting": "Đang đăng xuất..."
+		},
+		"validation": {
+			"currentPasswordRequired": "Vui lòng nhập mật khẩu hiện tại",
+			"passwordMin": "Mật khẩu phải có ít nhất 6 ký tự",
+			"passwordMismatch": "Xác nhận mật khẩu không khớp"
+		},
+		"errors": {
+			"profile": "Không thể tải thông tin tài khoản. Vui lòng thử lại.",
+			"password": "Không thể đổi mật khẩu. Vui lòng kiểm tra lại mật khẩu hiện tại.",
+			"logout": "Không thể đăng xuất. Vui lòng thử lại."
+		},
+		"notifications": {
+			"profileRefreshed": "Đã làm mới thông tin.",
+			"passwordUpdated": "Đã đổi mật khẩu."
+		}
 	}
 }
