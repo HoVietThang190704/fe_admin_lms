@@ -70,7 +70,7 @@
 				{ "label": "Users", "href": "/users", "icon": "users" },
 				{ "label": "Learning pulse", "href": "/reports", "icon": "learning" },
 				{ "label": "Courses", "href": "/courses", "icon": "courses" },
-				{ "label": "Tickets", "href": "/my-dashboard", "icon": "tickets" }
+				{ "label": "Tickets", "href": "/tickets", "icon": "tickets" }
 			],
 			"secondaryNavigation": [
 				{ "label": "Reports", "href": "/reports", "icon": "reports" },
@@ -250,6 +250,72 @@
 			"imageUpload": "Unable to upload the image. Please try again."
 		}
 	},
+		"tickets": {
+			"page": {
+				"badge": "Incident desk",
+				"title": "Ticket operations",
+				"description": "Monitor every learner and instructor escalation in real time.",
+				"primaryAction": "Refresh stream",
+				"secondaryAction": "Export log"
+			},
+			"filters": {
+				"searchPlaceholder": "Search tickets by title, ID, or requester",
+				"statusLabel": "Status",
+				"statusAll": "All statuses",
+				"refreshCta": "Refresh"
+			},
+			"summary": {
+				"total": "All tickets",
+				"open": "Open",
+				"inProgress": "In progress",
+				"resolved": "Resolved",
+				"unassigned": "Unassigned"
+			},
+			"table": {
+				"ticket": "Ticket",
+				"priority": "Priority",
+				"type": "Type",
+				"assigned": "Assigned",
+				"created": "Created",
+				"status": "Status",
+				"actions": "Actions",
+				"viewDetails": "View details",
+				"empty": "No tickets match the current filters.",
+				"loading": "Loading tickets...",
+				"statusPlaceholder": "Update status"
+			},
+			"detail": {
+				"title": "Ticket details",
+				"description": "Full metadata and resolution history.",
+				"createdBy": "Created by",
+				"assignedTo": "Assigned to",
+				"descriptionLabel": "Description",
+				"metadata": "Metadata",
+				"relatedOrder": "Related order",
+				"relatedShop": "Related shop",
+				"resolution": "Resolution message",
+				"comments": "Comments"
+			},
+			"status": {
+				"open": "Open",
+				"in_progress": "In progress",
+				"on_hold": "On hold",
+				"resolved": "Resolved",
+				"closed": "Closed",
+				"rejected": "Rejected"
+			},
+			"priority": {
+				"low": "Low",
+				"medium": "Medium",
+				"high": "High",
+				"urgent": "Urgent"
+			},
+			"errors": {
+				"load": "Unable to load tickets. Please try again.",
+				"detail": "Unable to load ticket details.",
+				"status": "Unable to update ticket status."
+			}
+		},
 	"settings": {
 		"page": {
 			"eyebrow": "Control center",

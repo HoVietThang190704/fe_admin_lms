@@ -26,6 +26,7 @@ export const ROUTES = {
   MY_DASHBOARD: '/my-dashboard',
   USERS: '/users',
   COURSES: '/courses',
+  TICKETS: '/tickets',
   COURSE_DETAIL: (id: string) => `/courses/${id}`,
   EXERCISES: '/exercises',
   EXERCISE_DETAIL: (id: string) => `/exercises/${id}`,
