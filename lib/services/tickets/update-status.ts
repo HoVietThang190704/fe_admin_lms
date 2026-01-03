@@ -24,13 +24,18 @@ export const updateTicketStatus = async (
     throw new ApiError(errorPayload?.message || 'Failed to update ticket status', response.status, errorPayload);
   }
 
-  const data = (await response.json().catch(() => null)) as AdminTicketRecord | { data?: AdminTicketRecord } | null;
-  if (data && 'data' in (data as object) && data.data) {
-    return data.data;
+  type TicketUpdateResponse = AdminTicketRecord | { data?: AdminTicketRecord | null } | null;
+  const payloadBody = (await response.json().catch(() => null)) as TicketUpdateResponse;
+
+  if (payloadBody && typeof payloadBody === 'object' && 'data' in payloadBody) {
+    if (payloadBody.data) {
+      return payloadBody.data;
+    }
+    throw new ApiError('Missing ticket payload', 500);
   }
 
-  if (data && !('data' in (data as object))) {
-    return data as AdminTicketRecord;
+  if (payloadBody) {
+    return payloadBody as AdminTicketRecord;
   }
 
   throw new ApiError('Missing ticket payload', 500);

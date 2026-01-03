@@ -5,8 +5,6 @@ import { buildApiUrl } from '@/lib/utils/env';
 
 const ALLOWED_QUERY_KEYS = ['status', 'assignedTo', 'limit', 'offset'] as const;
 
-type AllowedQueryKey = (typeof ALLOWED_QUERY_KEYS)[number];
-
 const buildTicketsEndpoint = (searchParams: URLSearchParams) => {
   const target = new URL(buildApiUrl(INTERNAL_API_ENDPOINTS.TICKETS.LIST));
   ALLOWED_QUERY_KEYS.forEach((key) => {
