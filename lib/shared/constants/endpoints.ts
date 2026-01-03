@@ -39,6 +39,11 @@ export const INTERNAL_API_ENDPOINTS = {
     DELETE: "/api/users/{id}",
     ME_PROFILE: "/api/users/me/profile",
   },
+  TICKETS: {
+    LIST: "/api/tickets",
+    DETAIL: "/api/tickets/{id}",
+    STATUS: "/api/tickets/{id}/status",
+  },
   UPLOAD: {
     IMAGES: "/api/upload/images",
     IMAGE: "/api/upload/images/{publicId}",

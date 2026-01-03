@@ -70,7 +70,7 @@
 				{ "label": "Người dùng", "href": "/users", "icon": "users" },
 				{ "label": "Nhịp học tập", "href": "/reports", "icon": "learning" },
 				{ "label": "Khoá học", "href": "/courses", "icon": "courses" },
-				{ "label": "Ticket", "href": "/my-dashboard", "icon": "tickets" }
+				{ "label": "Ticket", "href": "/tickets", "icon": "tickets" }
 			],
 			"secondaryNavigation": [
 				{ "label": "Báo cáo", "href": "/reports", "icon": "reports" },
@@ -250,6 +250,72 @@
 			"imageUpload": "Không thể tải ảnh lên. Vui lòng thử lại."
 		}
 	},
+		"tickets": {
+			"page": {
+				"badge": "Bàn trực hỗ trợ",
+				"title": "Quản lý ticket",
+				"description": "Theo dõi mọi yêu cầu hỗ trợ từ học viên và giảng viên.",
+				"primaryAction": "Làm mới dữ liệu",
+				"secondaryAction": "Xuất báo cáo"
+			},
+			"filters": {
+				"searchPlaceholder": "Tìm theo tiêu đề, mã ticket hoặc người tạo",
+				"statusLabel": "Trạng thái",
+				"statusAll": "Tất cả trạng thái",
+				"refreshCta": "Làm mới"
+			},
+			"summary": {
+				"total": "Tổng ticket",
+				"open": "Đang mở",
+				"inProgress": "Đang xử lý",
+				"resolved": "Đã giải quyết",
+				"unassigned": "Chưa phân công"
+			},
+			"table": {
+				"ticket": "Ticket",
+				"priority": "Mức ưu tiên",
+				"type": "Loại",
+				"assigned": "Phân công",
+				"created": "Tạo lúc",
+				"status": "Trạng thái",
+				"actions": "Thao tác",
+				"viewDetails": "Xem chi tiết",
+				"empty": "Không có ticket nào phù hợp bộ lọc.",
+				"loading": "Đang tải ticket...",
+				"statusPlaceholder": "Cập nhật trạng thái"
+			},
+			"detail": {
+				"title": "Chi tiết ticket",
+				"description": "Thông tin và lịch sử xử lý.",
+				"createdBy": "Người tạo",
+				"assignedTo": "Phân công cho",
+				"descriptionLabel": "Mô tả",
+				"metadata": "Thông tin liên quan",
+				"relatedOrder": "Đơn hàng liên quan",
+				"relatedShop": "Cửa hàng liên quan",
+				"resolution": "Ghi chú xử lý",
+				"comments": "Bình luận"
+			},
+			"status": {
+				"open": "Đang mở",
+				"in_progress": "Đang xử lý",
+				"on_hold": "Tạm hoãn",
+				"resolved": "Đã giải quyết",
+				"closed": "Đã đóng",
+				"rejected": "Từ chối"
+			},
+			"priority": {
+				"low": "Thấp",
+				"medium": "Trung bình",
+				"high": "Cao",
+				"urgent": "Khẩn cấp"
+			},
+			"errors": {
+				"load": "Không thể tải danh sách ticket. Vui lòng thử lại.",
+				"detail": "Không thể tải chi tiết ticket.",
+				"status": "Không thể cập nhật trạng thái ticket."
+			}
+		},
 	"settings": {
 		"page": {
 			"eyebrow": "Trung tâm điều khiển",
