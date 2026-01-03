@@ -64,8 +64,23 @@ export type HomeDashboardPayload = {
   courses: HomeCourseSummary[];
 };
 
+export type HomeClassListPayload = {
+  classes: HomeClassSummary[];
+  pagination: {
+    page: number;
+    limit: number;
+    total: number;
+  };
+};
+
 type FetchDashboardSummaryOptions = {
   baseUrl?: string;
+};
+
+type FetchMonitoringClassesOptions = FetchDashboardSummaryOptions & {
+  keyword?: string;
+  page?: number;
+  limit?: number;
 };
 
 type ApiEnvelope<T> = {
@@ -153,4 +168,62 @@ export const fetchDashboardSummary = async (options?: FetchDashboardSummaryOptio
   }
 
   throw new ApiError('Dashboard response is empty', response.status, data);
+};
+
+export const fetchMonitoringClasses = async (options?: FetchMonitoringClassesOptions): Promise<HomeClassListPayload> => {
+  const baseUrl = resolveInternalApiUrl(INTERNAL_API_ENDPOINTS.HOME.COURSES, options?.baseUrl);
+  const endpointUrl = new URL(baseUrl);
+
+  if (options?.keyword) {
+    endpointUrl.searchParams.set('keyword', options.keyword);
+  }
+
+  if (options?.page) {
+    endpointUrl.searchParams.set('page', String(options.page));
+  }
+
+  if (options?.limit) {
+    endpointUrl.searchParams.set('limit', String(options.limit));
+  }
+
+  const response = await fetch(endpointUrl.toString(), {
+    method: 'GET',
+    cache: 'no-store',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+
+  let data: unknown;
+
+  try {
+    data = await response.json();
+  } catch {
+    data = undefined;
+  }
+
+  if (!response.ok) {
+    const message = (data as { message?: string })?.message || 'Unable to load class monitoring data';
+    throw new ApiError(message, response.status, data);
+  }
+
+  const envelope = data as ApiEnvelope<HomeClassListPayload> | HomeClassListPayload | undefined;
+
+  if (isApiEnvelope<HomeClassListPayload>(envelope)) {
+    if (envelope.success === false) {
+      throw new ApiError(envelope.message || 'Unable to load class monitoring data', response.status, envelope);
+    }
+
+    if (envelope.data) {
+      return envelope.data;
+    }
+
+    throw new ApiError('Class monitoring response is missing payload', response.status, envelope);
+  }
+
+  if (envelope) {
+    return envelope as HomeClassListPayload;
+  }
+
+  throw new ApiError('Class monitoring response is empty', response.status, data);
 };

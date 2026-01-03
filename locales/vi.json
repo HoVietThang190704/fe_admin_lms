@@ -68,7 +68,7 @@
 			"navigation": [
 				{ "label": "Tổng quan", "href": "/", "icon": "overview", "badge": "Live" },
 				{ "label": "Người dùng", "href": "/users", "icon": "users" },
-				{ "label": "Nhịp học tập", "href": "/reports", "icon": "learning" },
+				{ "label": "Nhịp học tập", "href": "/learning-rhythm", "icon": "learning" },
 				{ "label": "Khoá học", "href": "/courses", "icon": "courses" },
 				{ "label": "Ticket", "href": "/tickets", "icon": "tickets" }
 			],
@@ -123,6 +123,57 @@
 		},
 		"empty": {
 			"generic": "Hiện chưa có dữ liệu để hiển thị."
+		}
+	},
+	"reports": {
+		"errorFallback": "Không thể tải nhịp học tập.",
+		"page": {
+			"eyebrow": "Nhịp học tập",
+			"title": "Nhịp học tập toàn hệ thống",
+			"description": "Theo dõi phiên học, tỷ lệ hoàn thành và nhiệm vụ tồn đọng của toàn bộ lớp đang giám sát."
+		},
+		"weekly": {
+			"eyebrow": "Nhịp độ theo tuần",
+			"title": "Tần suất tuần gần nhất",
+			"summarySessionsPrefix": "Trung bình",
+			"summaryCompletionSuffix": "nhiệm vụ hoàn tất"
+		},
+		"segments": {
+			"sessionsPerWeekSuffix": "buổi/tuần",
+			"progressLabel": "tiến độ",
+			"notesSuffix": "buổi hoàn thành"
+		},
+		"search": {
+			"label": "Tìm lớp học",
+			"placeholder": "Nhập tên môn, mã lớp hoặc giảng viên",
+			"action": "Tìm kiếm",
+			"clear": "Xóa lọc",
+			"empty": "Không có lớp nào phù hợp bộ lọc hiện tại.",
+			"summary": "Kết quả",
+			"error": "Không thể tải danh sách lớp cần giám sát.",
+			"pageLabel": "Trang",
+			"previous": "Trước",
+			"next": "Sau"
+		},
+		"cards": {
+			"sessions": {
+				"label": "Phiên học/tuần",
+				"description": "Theo mỗi lớp",
+				"trend": "so với tuần trước"
+			},
+			"completion": {
+				"label": "Tốc độ hoàn thành",
+				"description": "Trung bình toàn bộ nhiệm vụ"
+			},
+			"activeLearners": {
+				"label": "Lớp đang hoạt động",
+				"description": "Được giao cho nhóm bạn"
+			},
+			"backlog": {
+				"label": "Nhiệm vụ tồn đọng",
+				"description": "Cần can thiệp sớm",
+				"trend": "đầu việc đang mở"
+			}
 		}
 	},
 	"users": {

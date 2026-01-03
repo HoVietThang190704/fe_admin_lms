@@ -31,6 +31,7 @@ export const INTERNAL_API_ENDPOINTS = {
   },
   HOME: {
     DASHBOARD: "/api/home",
+    COURSES: "/api/home/courses",
   },
   USERS: {
     LIST: "/api/users",

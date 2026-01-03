@@ -68,7 +68,7 @@
 			"navigation": [
 				{ "label": "Overview", "href": "/", "icon": "overview", "badge": "Live" },
 				{ "label": "Users", "href": "/users", "icon": "users" },
-				{ "label": "Learning pulse", "href": "/reports", "icon": "learning" },
+				{ "label": "Learning pulse", "href": "/learning-rhythm", "icon": "learning" },
 				{ "label": "Courses", "href": "/courses", "icon": "courses" },
 				{ "label": "Tickets", "href": "/tickets", "icon": "tickets" }
 			],
@@ -123,6 +123,57 @@
 		},
 		"empty": {
 			"generic": "Nothing to show right now."
+		}
+	},
+	"reports": {
+		"errorFallback": "Unable to load learning rhythm.",
+		"page": {
+			"eyebrow": "Learning rhythm",
+			"title": "System-wide cadence",
+			"description": "Track sessions, completion, and backlogs across every monitored class."
+		},
+		"weekly": {
+			"eyebrow": "Weekly cadence",
+			"title": "Week-over-week tempo",
+			"summarySessionsPrefix": "Average",
+			"summaryCompletionSuffix": "assignments completed"
+		},
+		"segments": {
+			"sessionsPerWeekSuffix": "sessions/week",
+			"progressLabel": "progress",
+			"notesSuffix": "sessions completed"
+		},
+		"search": {
+			"label": "Search classes",
+			"placeholder": "Filter by course, code, or instructor",
+			"action": "Search",
+			"clear": "Reset",
+			"empty": "No classes match the current search.",
+			"summary": "Results",
+			"error": "Unable to load class monitoring data.",
+			"pageLabel": "Page",
+			"previous": "Previous",
+			"next": "Next"
+		},
+		"cards": {
+			"sessions": {
+				"label": "Sessions/week",
+				"description": "Per active class",
+				"trend": "vs last week"
+			},
+			"completion": {
+				"label": "Task completion",
+				"description": "Average completion speed"
+			},
+			"activeLearners": {
+				"label": "Active classes",
+				"description": "Assigned to your pod"
+			},
+			"backlog": {
+				"label": "Open blockers",
+				"description": "Need intervention",
+				"trend": "pending tasks"
+			}
 		}
 	},
 	"users": {

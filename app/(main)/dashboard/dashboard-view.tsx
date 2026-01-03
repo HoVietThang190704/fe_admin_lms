@@ -4,6 +4,8 @@ import type { LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
 import type { SupportedLocale } from '@/lib/i18n';
 import type { HomeDashboardPayload, HomeAssignmentSummary } from '@/lib/services/home/dashboard';
+import Link from 'next/link';
+
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { AdminScaffold } from '@/components/layout/admin-scaffold';
@@ -152,7 +154,9 @@ export const DashboardView = ({
               <p className="text-2xl font-semibold text-emerald-300">{hero.statusValue}</p>
             </div>
             <div className="flex gap-3">
-              <Button className="rounded-2xl bg-white/15 text-white shadow-lg hover:bg-white/25">{hero.primaryAction}</Button>
+              <Button className="rounded-2xl bg-white/15 text-white shadow-lg hover:bg-white/25" asChild>
+                <Link href="/learning-rhythm">{hero.primaryAction}</Link>
+              </Button>
               <Button variant="muted" className="rounded-2xl bg-white text-slate-900 hover:bg-white/90">
                 {hero.secondaryAction}
               </Button>

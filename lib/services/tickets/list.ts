@@ -19,6 +19,10 @@ const buildQuery = (params: TicketListParams) => {
   return query ? `?${query}` : '';
 };
 
+type TicketApiResponse = Partial<TicketListResponse> & {
+  data?: AdminTicketRecord[] | null;
+};
+
 export const fetchAdminTickets = async (params: TicketListParams = {}): Promise<TicketListResponse> => {
   const query = buildQuery(params);
   const response = await fetch(`/api/tickets${query}`, {
@@ -35,8 +39,14 @@ export const fetchAdminTickets = async (params: TicketListParams = {}): Promise<
     throw new ApiError(errorPayload?.message || 'Failed to fetch tickets', response.status, errorPayload);
   }
 
-  const data = (await response.json().catch(() => ({}))) as Partial<TicketListResponse>;
-  const tickets = Array.isArray(data?.tickets) ? data.tickets : (Array.isArray((data as any)?.data) ? (data as any).data : []);
+  let payload: TicketApiResponse = {};
+  try {
+    payload = (await response.json()) as TicketApiResponse;
+  } catch {
+    payload = {};
+  }
+
+  const tickets = Array.isArray(payload.tickets) ? payload.tickets : Array.isArray(payload.data) ? payload.data : [];
 
   return {
     tickets: (tickets as AdminTicketRecord[]) ?? []
