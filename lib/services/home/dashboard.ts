@@ -68,6 +68,15 @@ type FetchDashboardSummaryOptions = {
   baseUrl?: string;
 };
 
+type ApiEnvelope<T> = {
+  success?: boolean;
+  data?: T;
+  message?: string;
+};
+
+const isApiEnvelope = <T>(value: unknown): value is ApiEnvelope<T> =>
+  typeof value === 'object' && value !== null && 'success' in value;
+
 const isAbsoluteUrl = (value: string) => /^https?:\/\//.test(value);
 
 const trimTrailingSlash = (value: string) => value.replace(/\/$/, '');
@@ -125,5 +134,23 @@ export const fetchDashboardSummary = async (options?: FetchDashboardSummaryOptio
     throw new ApiError(message, response.status, data);
   }
 
-  return data as HomeDashboardPayload;
+  const envelope = data as ApiEnvelope<HomeDashboardPayload> | HomeDashboardPayload | undefined;
+
+  if (isApiEnvelope<HomeDashboardPayload>(envelope)) {
+    if (envelope.success === false) {
+      throw new ApiError(envelope.message || 'Unable to load dashboard data', response.status, envelope);
+    }
+
+    if (envelope.data) {
+      return envelope.data;
+    }
+
+    throw new ApiError('Dashboard response is missing payload', response.status, envelope);
+  }
+
+  if (envelope) {
+    return envelope as HomeDashboardPayload;
+  }
+
+  throw new ApiError('Dashboard response is empty', response.status, data);
 };
