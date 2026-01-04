@@ -70,7 +70,8 @@
 				{ "label": "Người dùng", "href": "/users", "icon": "users" },
 				{ "label": "Nhịp học tập", "href": "/learning-rhythm", "icon": "learning" },
 				{ "label": "Khoá học", "href": "/courses", "icon": "courses" },
-				{ "label": "Ticket", "href": "/tickets", "icon": "tickets" }
+				{ "label": "Ticket", "href": "/tickets", "icon": "tickets" },
+				{ "label": "Chat hỗ trợ", "href": "/support-chat", "icon": "support" }
 			],
 			"secondaryNavigation": [
 				{ "label": "Báo cáo", "href": "/reports", "icon": "reports" },
@@ -123,6 +124,53 @@
 		},
 		"empty": {
 			"generic": "Hiện chưa có dữ liệu để hiển thị."
+		}
+	},
+	"supportChat": {
+		"page": {
+			"badge": "Trung tâm hỗ trợ",
+			"title": "Chat trực tuyến với học viên",
+			"description": "Theo dõi và phản hồi mọi cuộc trò chuyện hỗ trợ theo thời gian thực.",
+			"primaryAction": "Kết nối lại",
+			"secondaryAction": "Làm mới hồ sơ",
+			"emptyTitle": "Chưa có cuộc trò chuyện",
+			"emptyDescription": "Khi học viên gửi yêu cầu, hội thoại sẽ xuất hiện ngay tại đây.",
+			"currentOperator": "Đang trả lời với tư cách"
+		},
+		"list": {
+			"searchPlaceholder": "Tìm theo tên hoặc mã học viên",
+			"unreadLabel": "chưa đọc",
+			"totalThreads": "Hội thoại",
+			"activeLabel": "Đang hoạt động",
+			"queueLabel": "Chờ phản hồi",
+			"emptyPreview": "Chưa có tin nhắn",
+			"title": "Hộp thư"
+		},
+		"thread": {
+			"headerTitle": "Hội thoại",
+			"emptyState": "Chọn một học viên để mở hội thoại.",
+			"composerPlaceholder": "Nhập phản hồi...",
+			"sendCta": "Gửi phản hồi",
+			"syncBadge": "Đã kết nối",
+			"disconnectedBadge": "Mất kết nối",
+			"operatorLabel": "Bạn",
+			"sendingLabel": "Đang gửi...",
+			"sendErrorLabel": "Gửi thất bại."
+		},
+		"states": {
+			"idle": "Sẵn sàng",
+			"connecting": "Đang kết nối",
+			"online": "Trực tuyến",
+			"error": "Lỗi"
+		},
+		"errors": {
+			"connection": "Không thể kết nối tới socket hỗ trợ.",
+			"send": "Không gửi được tin nhắn. Vui lòng thử lại.",
+			"profile": "Không thể tải thông tin quản trị viên."
+		},
+		"meta": {
+			"lastConnected": "Kết nối lần cuối",
+			"messagePlaceholder": "Nhập phản hồi và nhấn Enter"
 		}
 	},
 	"reports": {

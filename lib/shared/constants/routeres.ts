@@ -5,6 +5,7 @@ export const ROUTES = {
   FORGOT_PASSWORD: '/forgot-password',
 	RESET_PASSWORD: '/reset-password',
   SUPPORT: '/support',
+  SUPPORT_CHAT: '/support-chat',
   ABOUT: '/about',
   PRIVACY_POLICY: '/privacy-policy',
   MY_PROFILE: '/my-profile',
