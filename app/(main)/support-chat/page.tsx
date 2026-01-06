@@ -176,7 +176,6 @@ export default function SupportChatPage() {
 
     const socket = io(socketUrl, {
       path: SOCKET_PATH,
-      transports: ['websocket'],
       withCredentials: true
     });
 
