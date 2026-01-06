@@ -70,7 +70,8 @@
 				{ "label": "Users", "href": "/users", "icon": "users" },
 				{ "label": "Learning pulse", "href": "/learning-rhythm", "icon": "learning" },
 				{ "label": "Courses", "href": "/courses", "icon": "courses" },
-				{ "label": "Tickets", "href": "/tickets", "icon": "tickets" }
+				{ "label": "Tickets", "href": "/tickets", "icon": "tickets" },
+				{ "label": "Support chat", "href": "/support-chat", "icon": "support" }
 			],
 			"secondaryNavigation": [
 				{ "label": "Reports", "href": "/reports", "icon": "reports" },
@@ -123,6 +124,53 @@
 		},
 		"empty": {
 			"generic": "Nothing to show right now."
+		}
+	},
+	"supportChat": {
+		"page": {
+			"badge": "Support desk",
+			"title": "Live learner chat",
+			"description": "Watch every support conversation in real time.",
+			"primaryAction": "Reconnect socket",
+			"secondaryAction": "Refresh profile",
+			"emptyTitle": "No conversations yet",
+			"emptyDescription": "Learner chats will appear here the moment someone reaches out.",
+			"currentOperator": "Responding as"
+		},
+		"list": {
+			"searchPlaceholder": "Search by learner or ID",
+			"unreadLabel": "unread",
+			"totalThreads": "Threads",
+			"activeLabel": "Active conversations",
+			"queueLabel": "Awaiting responses",
+			"emptyPreview": "No messages yet",
+			"title": "Inbox"
+		},
+		"thread": {
+			"headerTitle": "Conversation",
+			"emptyState": "Select a learner to load their conversation.",
+			"composerPlaceholder": "Type a reply...",
+			"sendCta": "Send reply",
+			"syncBadge": "Connected",
+			"disconnectedBadge": "Offline",
+			"operatorLabel": "You",
+			"sendingLabel": "Sending...",
+			"sendErrorLabel": "Failed to send."
+		},
+		"states": {
+			"idle": "Idle",
+			"connecting": "Connecting",
+			"online": "Online",
+			"error": "Error"
+		},
+		"errors": {
+			"connection": "Unable to connect to support socket.",
+			"send": "Unable to send message. Please try again.",
+			"profile": "Unable to load administrator profile."
+		},
+		"meta": {
+			"lastConnected": "Last connected",
+			"messagePlaceholder": "Type a response and press Enter"
 		}
 	},
 	"reports": {
